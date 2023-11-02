@@ -1,4 +1,4 @@
-# Text Analysis Streamlit App 📖✨
+# Archalyze - Story Analysis App 📖✨
 
 Analyze literary texts with cutting-edge natural language processing techniques. Explore word frequencies, sentiment, and the visual story arc of any text!
 
