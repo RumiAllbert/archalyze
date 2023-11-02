@@ -5,6 +5,7 @@ from textblob import TextBlob
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import pandas as pd
+from utils.network import visualize_character_network
 from utils.sentiment import compute_sentiments
 
 # Download stopwords and punkt tokenizer
@@ -59,10 +60,10 @@ def main():
         # Read the uploaded file
         text = uploaded_file.read().decode('utf-8')
         
-        # Page navigation
+       # Page navigation
         page = st.sidebar.selectbox(
             "Choose an analysis type",
-            ("Word Frequency Analysis", "Sentiment Analysis", "Visual Story Arc")
+            ("Word Frequency Analysis", "Sentiment Analysis", "Visual Story Arc", "Character Network")
         )
         
         if page == "Word Frequency Analysis":
@@ -71,6 +72,9 @@ def main():
             sentiment_analysis(text)
         elif page == "Visual Story Arc":
             visual_story_arc(text)
+        elif page == "Character Network":
+            window_size = st.sidebar.slider("Window Size for Character Co-occurrence", 50, 500, 150)
+            visualize_character_network(text, window_size)
 
 if __name__ == "__main__":
     main()
